@@ -1,58 +1,36 @@
-﻿<Window x:Class="SwarmClient.MainWindow"
+﻿<Window x:Class="SwarmClient.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SwarmClient"
+        xmlns:local="clr-namespace:SwarmClient.ViewModels"
         mc:Ignorable="d"
         Title="SwarmClient" Height="350" Width="525">
-
-
-
-   
-
-
-    <Window.Resources>
-        <Style TargetType="Label" x:Key="LableStyle">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="Width" Value="110"/>
-            <Setter Property="Height" Value="30"/>
-        </Style>
-    </Window.Resources>
-
+    <Window.DataContext>
+        <local:Model/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         
-        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="110"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="110"/>
         </Grid.ColumnDefinitions>
-
-
+        
         <Label Grid.Row="0" Grid.Column="0" Content="Connection String" Style="{StaticResource LableStyle}" />
         <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle}" />
         <Label Grid.Row="2" Grid.Column="0" Content="Data To Send" Style="{StaticResource LableStyle}" />
         <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle}" />
-        <Label Grid.Row="4" Grid.Column="0"  Style="{StaticResource LableStyle}" />
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
-                 
-                 
-                 
-                 
-                 />
-
-
-
+        <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}" />
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
     </Grid>
 </Window>
