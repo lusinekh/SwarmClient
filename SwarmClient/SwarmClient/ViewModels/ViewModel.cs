@@ -15,6 +15,7 @@ namespace SwarmClient.ViewModels
         {
             _model = new Model();
             AddCommand= new Relaycommand(Ececute, Canececute);
+            AddCommand1 = new Relaycommand(Ececute1, Canececute);
         }
         public Model Model
         {
@@ -47,18 +48,20 @@ namespace SwarmClient.ViewModels
         public void Ececute()
         {
             Connected = "Is string";
+        }
+
+        public void Ececute1()
+        {
             Sent = "Sent";
-
-
         }
         public bool Canececute()
         {
             return true;
         }
         public ICommand AddCommand{ get;}
-     }
+        public ICommand AddCommand1 { get; }
+    }
         
-
         
     }
 

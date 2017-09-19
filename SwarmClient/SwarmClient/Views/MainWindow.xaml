@@ -36,11 +36,10 @@
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
             <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
             <Button Grid.Row="0" Grid.Column="2" Content="Connect" Style="{StaticResource ButtonStyle}"
-                Command="{Binding  AddCommand}"    
-                    
+                Command="{Binding  AddCommand}"  
                     />
-            <Button Grid.Row="2" Grid.Column="2" Content="Connect" Style="{StaticResource ButtonStyle}"
-                    Command="{Binding AddCommand}"
+            <Button Grid.Row="2" Grid.Column="2" Content="Send" Style="{StaticResource ButtonStyle}"
+                    Command="{Binding  AddCommand1}"
                     />
         </Grid>
     </Border>
