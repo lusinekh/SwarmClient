@@ -11,12 +11,7 @@ namespace SwarmClient.ViewModels
         #region  Variables
         private string _conected;
         private string _sent;
-        public Model(string conected,string sent)
-        {
-            _conected = conected;
-            _sent = sent;
-
-        }
+       
 
         #endregion
         #region  Propertys

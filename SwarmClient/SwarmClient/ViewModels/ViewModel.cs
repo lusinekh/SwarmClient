@@ -13,7 +13,8 @@ namespace SwarmClient.ViewModels
         private Model _model;
         public ViewModel()
         {
-            _model = new Model("strring is connected", "sent");
+            _model = new Model();
+            AddCommand= new Relaycommand(Ececute, Canececute);
         }
         public Model Model
         {
@@ -43,17 +44,21 @@ namespace SwarmClient.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
-        public bool Canececute()
-        {
-          return true;
-        }
-        
         public void Ececute()
         {
-            
+            Connected = "Is string";
+            Sent = "Sent";
+
 
         }
-                
+        public bool Canececute()
+        {
+            return true;
+        }
+        public ICommand AddCommand{ get;}
+     }
+        
 
+        
     }
-}
+
