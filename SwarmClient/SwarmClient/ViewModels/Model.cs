@@ -10,7 +10,7 @@ namespace SwarmClient.ViewModels
 	{
         #region  Variables
         private string _conected;
-        private string _sent;
+        private string _send;
        
         #endregion
         #region  Propertys
@@ -19,10 +19,10 @@ namespace SwarmClient.ViewModels
             get { return _conected; }
             set { _conected = value; }
         }
-        public string Sent
+        public string Send
         {
-            get { return _sent; }
-            set { _sent = value; }
+            get { return _send; }
+            set { _send = value; }
         }
 #endregion
     }

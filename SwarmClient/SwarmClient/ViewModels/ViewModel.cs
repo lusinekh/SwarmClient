@@ -10,58 +10,73 @@ namespace SwarmClient.ViewModels
 {
     public class ViewModel : INotifyPropertyChanged
     {
+        #region  Variables
         private Model _model;
+        #endregion
+        #region Constructrs
         public ViewModel()
         {
             _model = new Model();
-            AddCommand= new Relaycommand(Ececute, Canececute);
-            AddCommand1 = new Relaycommand(Ececute1, Canececute);
+            ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
+            SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
         }
+        #endregion
+        #region  Propertys
         public Model Model
         {
             get { return _model; }
-            set { _model = value;
+            set
+            {
+                _model = value;
                 RaisePropertyChanged("Model");
             }
         }
         public string Connected
         {
             get { return Model.Connected; }
-            set { Model.Connected = value;
+            set
+            {
+                Model.Connected = value;
                 RaisePropertyChanged("Connected");
             }
         }
-        public string Sent
+        public string Send
         {
-            get { return Model.Sent; }
-            set { Model.Sent = value;
-                RaisePropertyChanged("Sent");
+            get { return Model.Send; }
+            set
+            {
+                Model.Send = value;
+                RaisePropertyChanged("Send");
             }
         }
+        public ICommand ConnectCommand { get; }
+        public ICommand SendCommand { get; }
+
         public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+        #region Functions
         public void RaisePropertyChanged(string name)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
-
-        public void Ececute()
+        public void ConnectEcecute()
         {
-            Connected = "Is string";
+            Connected = "String is connected";
         }
-
-        public void Ececute1()
+        public void SendEcecute()
         {
-            Sent = "Sent";
+            Send = "Sent";
         }
-        public bool Canececute()
+        public bool CanEcecuteConnect()
         {
             return true;
         }
-        public ICommand AddCommand{ get;}
-        public ICommand AddCommand1 { get; }
+        public bool CanEcecuteSend()
+        {
+            return true;
+        }
+        #endregion
     }
-        
-        
-    }
+}
 
