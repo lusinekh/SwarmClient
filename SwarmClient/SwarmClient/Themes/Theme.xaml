@@ -10,10 +10,14 @@
             <Setter Property="Height" Value="30"/>
         </Style>
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="Width" Value="240"/>
-            <Setter Property="Height" Value="30"/>
-        </Style>
-    
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="240"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+     
+
+    </Style>
+
 </ResourceDictionary>
