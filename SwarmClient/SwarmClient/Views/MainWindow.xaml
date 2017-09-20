@@ -12,10 +12,10 @@
     <Border Background="Lavender" BorderBrush="LavenderBlush" BorderThickness="2" CornerRadius="15">
         <Grid Margin="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
@@ -26,9 +26,9 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Connection String" Style="{StaticResource LableStyle}" />
-           
+
             <Label Grid.Row="2" Grid.Column="0" Content="Data To Send" Style="{StaticResource LableStyle}" />
-          
+
             <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}" />
             <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
                      MinHeight="20" MinWidth="20"  AcceptsReturn="True"  SpellCheck.IsEnabled="True"
@@ -47,22 +47,26 @@
                      IsReadOnly="True"
                      
                      />
-            <WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">
-            <Button  Content="Connect" Style="{StaticResource ButtonStyle}"
+            <!--<WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">-->
+            <Button   Grid.Row="0" Grid.Column="2"   Content="Connect" Style="{StaticResource ButtonStyle}"
                 Command="{Binding  ConnectCommand}" 
+                      VerticalAlignment="Bottom"
+                         HorizontalAlignment="Center"
                     />
-                <Label   Style="{StaticResource LableStyle1}" Content="{Binding Connected}" />
+            <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="32" Margin="1,6,-11,0" Grid.RowSpan="2" />
 
-            </WrapPanel>
+            <!--</WrapPanel>-->
 
-            <WrapPanel Grid.Row="2" Grid.Column="2">
-                <Button  Content="Send" Style="{StaticResource ButtonStyle}"
-                    Command="{Binding  SendCommand}"
-                                             />
+          
 
                 <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle1}" 
                    Content="{Binding Send}"  />
-            </WrapPanel>
+            <Button  Grid.Row="2" Grid.Column="2" Content="Send" Style="{StaticResource ButtonStyle}"
+                    Command="{Binding SendCommand}"
+                         VerticalAlignment="Bottom"
+                         HorizontalAlignment="Center"
+                                             />
+           
         </Grid>
     </Border>
 </Window>
