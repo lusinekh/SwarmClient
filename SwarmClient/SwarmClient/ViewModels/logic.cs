@@ -8,31 +8,27 @@ namespace SwarmClient.ViewModels
 {
 	public class logic
 	{
-
-
+		#region  Variables
 		private string _connectionString;
 		private string _dataToSend;
 		private string _resivedData;
-
+#endregion
 		public string ConnectionString
 		{
 			get { return _connectionString; }
 			set { _connectionString = value; }
 		}
-
+		#region  Propertys
 		public string DataToSend
 		{
 			get { return _dataToSend; }
 			set { _dataToSend = value; }
 		}
-
-
 		public string ResivedData
 		{
 			get { return _resivedData; }
 			set { _resivedData = value; }
 		}
-		
-
+#endregion
 	}
 }
