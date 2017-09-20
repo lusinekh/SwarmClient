@@ -67,6 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mvvm\Relaycommand.cs" />
+    <Compile Include="ViewModels\logic.cs" />
     <Compile Include="ViewModels\Model.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
