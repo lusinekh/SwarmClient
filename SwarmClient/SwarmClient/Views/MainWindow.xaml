@@ -45,7 +45,6 @@
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}" 
                      IsReadOnly="True"
-                     
                      />
             <!--<WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">-->
             <Button   Grid.Row="0" Grid.Column="2"   Content="Connect" Style="{StaticResource ButtonStyle}"
@@ -53,20 +52,16 @@
                       VerticalAlignment="Bottom"
                          HorizontalAlignment="Center"
                     />
-            <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="32" Margin="1,6,-11,0" Grid.RowSpan="2" />
-
+            <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="32" Margin="2"  Grid.RowSpan="2" />
             <!--</WrapPanel>-->
 
-          
-
-                <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle1}" 
-                   Content="{Binding Send}"  />
+            <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle1}" 
+                   Content="{Binding Send}" Height="30"  Width="Auto"   Margin="2" />
             <Button  Grid.Row="2" Grid.Column="2" Content="Send" Style="{StaticResource ButtonStyle}"
                     Command="{Binding SendCommand}"
                          VerticalAlignment="Bottom"
                          HorizontalAlignment="Center"
                                              />
-           
         </Grid>
     </Border>
 </Window>
