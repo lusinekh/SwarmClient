@@ -9,18 +9,14 @@
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
-
-    
-
-
     <Border Background="Lavender" BorderBrush="LavenderBlush" BorderThickness="2" CornerRadius="15">
         <Grid Margin="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -30,31 +26,43 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Connection String" Style="{StaticResource LableStyle}" />
-            <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle}" Content="{Binding Connected}" />
+           
             <Label Grid.Row="2" Grid.Column="0" Content="Data To Send" Style="{StaticResource LableStyle}" />
-            <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle}"
-                   
-                   Content="{Binding Send}"  />
+          
             <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}" />
             <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
+                     MinHeight="20" MinWidth="20"  AcceptsReturn="True"  SpellCheck.IsEnabled="True"
+                     
                         Text ="{Binding ConnectionString,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"   Text ="{Binding DataToSend,
                         Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}"/>
+                        UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="WrapWithOverflow"
+                     />
             <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}"  Text ="{Binding ResivedData,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}" 
                      IsReadOnly="True"
                      
                      />
-            <Button Grid.Row="0" Grid.Column="2" Content="Connect" Style="{StaticResource ButtonStyle}"
-                Command="{Binding  ConnectCommand}"  
+            <WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">
+            <Button  Content="Connect" Style="{StaticResource ButtonStyle}"
+                Command="{Binding  ConnectCommand}" 
                     />
-            <Button Grid.Row="2" Grid.Column="2" Content="Send" Style="{StaticResource ButtonStyle}"
+                <Label   Style="{StaticResource LableStyle1}" Content="{Binding Connected}" />
+
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="2" Grid.Column="2">
+                <Button  Content="Send" Style="{StaticResource ButtonStyle}"
                     Command="{Binding  SendCommand}"
-                    />
+                                             />
+
+                <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle1}" 
+                   Content="{Binding Send}"  />
+            </WrapPanel>
         </Grid>
     </Border>
 </Window>
