@@ -103,9 +103,9 @@ namespace SwarmClient.ViewModels
 		public void ConnectEcecute()
 		{
 			Connected = "String is connected";
-			//DataToSend = ConnectionString;
+			DataToSend = ConnectionString;
 
-			MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
+			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
 		}
 		public void SendEcecute()
 		{
