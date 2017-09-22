@@ -69,6 +69,7 @@
     <Compile Include="Mvvm\Relaycommand.cs" />
     <Compile Include="ViewModels\logic.cs" />
     <Compile Include="ViewModels\Model.cs" />
+    <Compile Include="ViewModels\TcpServereConnect.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

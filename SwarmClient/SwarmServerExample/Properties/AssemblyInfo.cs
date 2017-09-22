@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SwarmServer")]
+[assembly: AssemblyTitle("SwarmServerExample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SwarmServer")]
+[assembly: AssemblyProduct("SwarmServerExample")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("804d8a22-c443-441d-a8d1-02b9579304a0")]
+[assembly: Guid("15985ec5-d1b2-4789-b5b7-4e3f72323f29")]
 
 // Version information for an assembly consists of the following four values:
 //
