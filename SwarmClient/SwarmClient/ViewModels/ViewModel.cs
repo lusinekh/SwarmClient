@@ -120,18 +120,7 @@ namespace SwarmClient.ViewModels
 			return true;
 		}
 		#endregion
-		
-
-		public string SplitString(string name,int i)
-		{
-			string[] s=name.Split(':');
-
-			if (i == 0)
-				return s[0];
-			return s[1];
-		}
-
-
+				
 	}
 }
 
