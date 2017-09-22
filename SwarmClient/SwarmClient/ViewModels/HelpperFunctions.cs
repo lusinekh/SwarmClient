@@ -19,7 +19,7 @@ namespace SwarmClient.ViewModels
 
 
 
-		static public int GetPort(string name, int i)
+		static public int GetPort(string name)
 		{
 			string[] s = name.Split(':');
 

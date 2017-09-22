@@ -6,9 +6,9 @@ using System.Text;
 
 namespace SwarmClient.ViewModels
 {
-	class TcpServereConnect
+ public	class TcpServereConnect
 	{
-		TcpClient client = null;
+		private	TcpClient client = null;
 		public void Connect(String server)
 		{
 			try
