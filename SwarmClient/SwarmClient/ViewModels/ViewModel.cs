@@ -143,8 +143,20 @@ namespace SwarmClient.ViewModels
 		}
 		public void SendEcecute()
 		{
-			Send = "Sent";
+			try
+			{
+				Connection.SendMassage(DataToSend);
+			}
+
+			catch (Exception e)
+			{
+				Send = "Sent";
+				Console.WriteLine("{0} Exception caught.", e);
+			}
+						
 		}
+
+
 		public bool CanEcecuteConnect()
 		{
 			return true;
