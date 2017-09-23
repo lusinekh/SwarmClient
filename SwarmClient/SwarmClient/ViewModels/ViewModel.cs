@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
+
 namespace SwarmClient.ViewModels
 {
 	public class ViewModel : INotifyPropertyChanged
@@ -15,6 +16,9 @@ namespace SwarmClient.ViewModels
 		private Model _model;
 		private logic _logic;
 		private TcpServereConnect _connection;
+		 
+
+
 		#endregion
 		#region Constructrs
 		public ViewModel()
@@ -39,9 +43,6 @@ namespace SwarmClient.ViewModels
 
 		}
 		
-
-
-
 		public logic Logic
 		{
 			get { return _logic; }
@@ -136,9 +137,7 @@ namespace SwarmClient.ViewModels
 				Connected = "String do`nt connected";
 				Console.WriteLine("{0} Exception caught.", e);
 			}
-
-
-
+			
 			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
 		}
 		public void SendEcecute()
@@ -146,17 +145,18 @@ namespace SwarmClient.ViewModels
 			try
 			{
 				Connection.SendMassage(DataToSend);
+				Send = "Sent";
+				ResivedData = _connection.responseData;
 			}
 
 			catch (Exception e)
 			{
-				Send = "Sent";
+				Send = "Massage do`nt send";
+				ResivedData = "Massage do`nt send";
 				Console.WriteLine("{0} Exception caught.", e);
 			}
-						
+									
 		}
-
-
 		public bool CanEcecuteConnect()
 		{
 			return true;

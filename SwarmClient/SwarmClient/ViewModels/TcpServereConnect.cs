@@ -9,6 +9,24 @@ namespace SwarmClient.ViewModels
  public	class TcpServereConnect
 	{
 		private	TcpClient client = null;
+		private NetworkStream _stream = null;
+ 	    private	String _responseData = null;
+
+		public NetworkStream stream
+		{
+			set { _stream = value; }
+			get { return _stream; }
+
+		}
+
+
+		public String responseData
+		{
+			set { _responseData = value; }
+			get { return _responseData; }
+
+		}
+
 		public void Connect(String server)
 		{
 			try
@@ -43,12 +61,14 @@ namespace SwarmClient.ViewModels
 			try
 			{
 				// Translate the passed message into ASCII and store it as a Byte array.
+				//Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
+
 				Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
 
-			// Get a client stream for reading and writing.
-			//  Stream stream = client.GetStream();
+				// Get a client stream for reading and writing.
+				//  Stream stream = client.GetStream();
 
-			NetworkStream stream = client.GetStream();
+				 stream = client.GetStream();
 
 			// Send the message to the connected TcpServer. 
 			stream.Write(data, 0, data.Length);
@@ -61,7 +81,7 @@ namespace SwarmClient.ViewModels
 			data = new Byte[256];
 
 			// String to store the response ASCII representation.
-			String responseData = String.Empty;
+			 responseData = String.Empty;
 
 			// Read the first batch of the TcpServer response bytes.
 			Int32 bytes = stream.Read(data, 0, data.Length);

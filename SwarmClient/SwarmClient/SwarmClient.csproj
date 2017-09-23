@@ -103,6 +103,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SwarmServerExample\SwarmServerExample.csproj">
+      <Project>{15985ec5-d1b2-4789-b5b7-4e3f72323f29}</Project>
+      <Name>SwarmServerExample</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
