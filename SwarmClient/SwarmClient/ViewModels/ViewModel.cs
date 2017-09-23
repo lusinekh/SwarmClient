@@ -142,11 +142,14 @@ namespace SwarmClient.ViewModels
 		}
 		public void SendEcecute()
 		{
+			
+
 			try
 			{
 				Connection.SendMassage(DataToSend);
 				Send = "Sent";
 				ResivedData = _connection.responseData;
+
 			}
 
 			catch (Exception e)
@@ -155,9 +158,11 @@ namespace SwarmClient.ViewModels
 				ResivedData = "Massage do`nt send";
 				Console.WriteLine("{0} Exception caught.", e);
 			}
-									
+
+
+
 		}
-		public bool CanEcecuteConnect()
+			public bool CanEcecuteConnect()
 		{
 			return true;
 		}

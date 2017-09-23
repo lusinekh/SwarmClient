@@ -52,8 +52,7 @@ namespace SwarmServerExample
 						data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
 						Console.WriteLine("Received: {0}", data);
 
-						// Process the data sent by the client.
-						data = data.ToUpper();
+						// Process the data sent by	//data = data.ToUpper();
 
 						byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
 
