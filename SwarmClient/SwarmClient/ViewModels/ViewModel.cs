@@ -16,8 +16,7 @@ namespace SwarmClient.ViewModels
 		private Model _model;
 		private logic _logic;
 		private TcpServereConnect _connection;
-		 
-
+		private bool _convert=false;
 
 		#endregion
 		#region Constructrs
@@ -33,16 +32,13 @@ namespace SwarmClient.ViewModels
 		#region  Propertys
 		public TcpServereConnect Connection
 		{
-
 			get { return _connection; }
 			set
 			{
 				_connection = value;
 				RaisePropertyChanged("Connection");
 			}
-
 		}
-		
 		public logic Logic
 		{
 			get { return _logic; }
@@ -69,6 +65,17 @@ namespace SwarmClient.ViewModels
 				Logic.DataToSend = value;
 				RaisePropertyChanged("DataToSend");
 			}
+		}
+
+
+
+		public bool Convert
+		{
+			get { return _convert; }
+			set { _convert = value;
+				RaisePropertyChanged("Convert");
+			}
+
 		}
 
 		public string ResivedData
@@ -109,7 +116,6 @@ namespace SwarmClient.ViewModels
 		}
 		public ICommand ConnectCommand { get; }
 		public ICommand SendCommand { get; }
-
 		public event PropertyChangedEventHandler PropertyChanged;
 		#endregion
 		#region Functions
@@ -120,50 +126,31 @@ namespace SwarmClient.ViewModels
 		}
 		public void ConnectEcecute()
 		{
-			
-
 			try
 			{
 				var _apiAddres = HelpperFunctions.GetIPAddress(ConnectionString);
-				
+
 				var _port = HelpperFunctions.GetPort(ConnectionString);
 				Connection.Connect(_apiAddres);
 				Connected = "String is connected";
-
 			}
-
 			catch (Exception e)
 			{
 				Connected = "String do`nt connected";
-				Console.WriteLine("{0} Exception caught.", e);
+				MessageBox.Show(e.ToString());
 			}
-			
 			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
 		}
 		public void SendEcecute()
 		{
-			
-
-			try
-			{
-				Connection.SendMassage(DataToSend);
-				Send = "Sent";
-				ResivedData = _connection.responseData;
-
-			}
-
-			catch (Exception e)
-			{
-				Send = "Massage do`nt send";
-				ResivedData = "Massage do`nt send";
-				Console.WriteLine("{0} Exception caught.", e);
-			}
-
-
-
+			Connection.SendMassage(DataToSend);
+			Send = "Sent";
+			ResivedData = _connection.responseData;
 		}
-			public bool CanEcecuteConnect()
+		public bool CanEcecuteConnect()
 		{
+			if (ConnectionString == string.Empty)
+				return false;
 			return true;
 		}
 		public bool CanEcecuteSend()
@@ -171,7 +158,6 @@ namespace SwarmClient.ViewModels
 			return true;
 		}
 		#endregion
-				
 	}
 }
 

@@ -42,7 +42,8 @@
                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                     TextWrapping="WrapWithOverflow"
                      />
-            <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}"  Text ="{Binding ResivedData,
+            <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}" 
+                     Text ="{Binding ResivedData,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}" 
                       HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -53,6 +54,7 @@
                 Command="{Binding  ConnectCommand}" 
                       VerticalAlignment="Bottom"
                          HorizontalAlignment="Center"
+                      Visibility="{Binding Convert}"
                     />
             <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="32" Margin="2"  Grid.RowSpan="2" />
             <!--</WrapPanel>-->
@@ -63,6 +65,7 @@
                     Command="{Binding SendCommand}"
                          VerticalAlignment="Bottom"
                          HorizontalAlignment="Center"
+                         Visibility="{Binding Convert}"
                                              />
         </Grid>
     </Border>

@@ -6,27 +6,26 @@ using System.Text;
 
 namespace SwarmClient.ViewModels
 {
- public	class TcpServereConnect
+	public class TcpServereConnect
 	{
-		private	TcpClient client = null;
+		#region Variables 
+		private TcpClient client = null;
 		private NetworkStream _stream = null;
- 	    private	String _responseData = null;
-
+		private String _responseData = null;
+#endregion
+		#region Propertys
 		public NetworkStream stream
 		{
 			set { _stream = value; }
 			get { return _stream; }
-
 		}
-
-
 		public String responseData
 		{
 			set { _responseData = value; }
 			get { return _responseData; }
-
 		}
-
+#endregion
+		#region Function
 		public void Connect(String server)
 		{
 			try
@@ -37,7 +36,6 @@ namespace SwarmClient.ViewModels
 				// combination.
 				Int32 port = 13000;
 				client = new TcpClient(server, port);
-				
 			}
 			catch (ArgumentNullException e)
 			{
@@ -47,15 +45,10 @@ namespace SwarmClient.ViewModels
 			{
 				Console.WriteLine("SocketException: {0}", e);
 			}
-
-			
 			/////////////////////////////////////////////////////////////////////////////////////////////////////
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-						
 		}
-		
-
 		public void SendMassage(String message)
 		{
 			try
@@ -68,30 +61,24 @@ namespace SwarmClient.ViewModels
 				// Get a client stream for reading and writing.
 				//  Stream stream = client.GetStream();
 
-				 stream = client.GetStream();
+				stream = client.GetStream();
 
-			// Send the message to the connected TcpServer. 
-			stream.Write(data, 0, data.Length);
+				// Send the message to the connected TcpServer. 
+				stream.Write(data, 0, data.Length);
+				// Receive the TcpServer.response.
 
-			
+				// Buffer to store the response bytes.
+				data = new Byte[256];
 
-			// Receive the TcpServer.response.
+				// String to store the response ASCII representation.
+				responseData = String.Empty;
 
-			// Buffer to store the response bytes.
-			data = new Byte[256];
-
-			// String to store the response ASCII representation.
-			 responseData = String.Empty;
-
-			// Read the first batch of the TcpServer response bytes.
-			Int32 bytes = stream.Read(data, 0, data.Length);
-			responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-			
-			// Close everything.
-			stream.Close();
-			client.Close();
-
-
+				// Read the first batch of the TcpServer response bytes.
+				Int32 bytes = stream.Read(data, 0, data.Length);
+				responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+				// Close everything.
+				stream.Close();
+				client.Close();
 			}
 			catch (ArgumentNullException e)
 			{
@@ -101,11 +88,9 @@ namespace SwarmClient.ViewModels
 			{
 				Console.WriteLine("SocketException: {0}", e);
 			}
-
 			Console.WriteLine("\n Press Enter to continue...");
 			Console.Read();
-
 		}
-		
+#endregion
 	}
 }
