@@ -56,7 +56,7 @@
                          HorizontalAlignment="Center"
                       Visibility="{Binding Convert}"
                     />
-            <Label Grid.Row="1" Grid.Column="2"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="32" Margin="2"  Grid.RowSpan="2" />
+            <Label Grid.Row="1" Grid.Column="1"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="32" Margin="463,2,3,0" Width="Auto" Grid.ColumnSpan="2" />
             <!--</WrapPanel>-->
 
             <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle1}" 
@@ -65,7 +65,7 @@
                     Command="{Binding SendCommand}"
                          VerticalAlignment="Bottom"
                          HorizontalAlignment="Center"
-                         Visibility="{Binding Convert}"
+                         Visibility="{Binding Visibility1}"
                                              />
         </Grid>
     </Border>

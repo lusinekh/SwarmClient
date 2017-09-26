@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-
 namespace SwarmClient.ViewModels
 {
 	public class ViewModel : INotifyPropertyChanged
@@ -17,7 +16,7 @@ namespace SwarmClient.ViewModels
 		private logic _logic;
 		private TcpServereConnect _connection;
 		private bool _convert=false;
-
+		public Visibility _visibility;
 		#endregion
 		#region Constructrs
 		public ViewModel()
@@ -27,9 +26,20 @@ namespace SwarmClient.ViewModels
 			_connection = new TcpServereConnect();
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
+			Visibility1 = Visibility.Collapsed;
 		}
 		#endregion
 		#region  Propertys
+
+		public Visibility Visibility1
+		{
+			get { return _visibility; }
+			set
+			{
+				_visibility = value;
+				RaisePropertyChanged("Visibility1");
+			}
+		}
 		public TcpServereConnect Connection
 		{
 			get { return _connection; }
@@ -66,9 +76,7 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("DataToSend");
 			}
 		}
-
-
-
+		
 		public bool Convert
 		{
 			get { return _convert; }
@@ -131,12 +139,13 @@ namespace SwarmClient.ViewModels
 				var _apiAddres = HelpperFunctions.GetIPAddress(ConnectionString);
 
 				var _port = HelpperFunctions.GetPort(ConnectionString);
-				Connection.Connect(_apiAddres);
-				Connected = "String is connected";
+				Connection.Connect(_apiAddres, _port);
+				Connected = "Contact is connected";
+				Visibility1 = Visibility.Visible;
 			}
 			catch (Exception e)
 			{
-				Connected = "String do`nt connected";
+				Connected = "Contact do`nt connected";
 				MessageBox.Show(e.ToString());
 			}
 			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
@@ -146,6 +155,7 @@ namespace SwarmClient.ViewModels
 			Connection.SendMassage(DataToSend);
 			Send = "Sent";
 			ResivedData = _connection.responseData;
+			
 		}
 		public bool CanEcecuteConnect()
 		{
