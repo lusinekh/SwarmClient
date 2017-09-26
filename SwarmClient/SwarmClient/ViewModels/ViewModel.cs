@@ -27,7 +27,7 @@ namespace SwarmClient.ViewModels
 			_connection = new TcpServereConnect();
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
-			Visibility1 = Visibility.Visible;
+			Visibility1 = Visibility.Hidden;
 			ClosedCommand= new Relaycommand(ClosedEcecute, CanClosed);
 		}
 		#endregion
@@ -200,8 +200,8 @@ namespace SwarmClient.ViewModels
 			Connection.SendMassage(DataToSend);
 			Send = "Sent";
 			ResivedData = _connection.responseData;
-	
 			
+
 		}
 		public bool CanEcecuteConnect()
 		{
