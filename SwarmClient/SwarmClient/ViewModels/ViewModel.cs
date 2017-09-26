@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +28,7 @@ namespace SwarmClient.ViewModels
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
 			Visibility1 = Visibility.Visible;
+			ClosedCommand= new Relaycommand(ClosedEcecute, CanClosed);
 		}
 		#endregion
 		#region  Propertys
@@ -113,6 +115,32 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("Connected");
 			}
 		}
+
+		public TcpClient Client
+		{
+			get { return Connection.Client; }
+			
+			set
+			{
+				Connection.Client = value;
+				RaisePropertyChanged("Client");
+			}
+		}
+
+
+		public NetworkStream Stream
+		{
+			get { return Connection.stream; }
+
+			set
+			{
+				Connection.stream = value;
+				RaisePropertyChanged("Stream");
+			}
+			
+		}
+
+
 		public string Send
 		{
 			get { return Model.Send; }
@@ -124,6 +152,7 @@ namespace SwarmClient.ViewModels
 		}
 		public ICommand ConnectCommand { get; }
 		public ICommand SendCommand { get; }
+		public ICommand ClosedCommand { get; }
 		public event PropertyChangedEventHandler PropertyChanged;
 		#endregion
 		#region Functions
@@ -132,6 +161,22 @@ namespace SwarmClient.ViewModels
 			if (PropertyChanged != null)
 				PropertyChanged(this, new PropertyChangedEventArgs(name));
 		}
+
+
+		public void ClosedEcecute()
+		{
+			Stream.Close();
+			Client.Close();
+			
+
+		}
+
+		public bool CanClosed()
+		{
+			return true;
+		}
+
+
 		public void ConnectEcecute()
 		{
 			try
@@ -155,6 +200,7 @@ namespace SwarmClient.ViewModels
 			Connection.SendMassage(DataToSend);
 			Send = "Sent";
 			ResivedData = _connection.responseData;
+	
 			
 		}
 		public bool CanEcecuteConnect()

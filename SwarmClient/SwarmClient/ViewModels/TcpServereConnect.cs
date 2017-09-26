@@ -13,19 +13,32 @@ namespace SwarmClient.ViewModels
 		private TcpClient client = null;
 		private NetworkStream _stream = null;
 		private String _responseData = null;
-#endregion
+		
+
+		#endregion
 		#region Propertys
-		public NetworkStream stream
-		{
-			set { _stream = value; }
-			get { return _stream; }
-		}
+		
 		public String responseData
 		{
 			set { _responseData = value; }
 			get { return _responseData; }
 		}
-#endregion
+
+
+		public NetworkStream stream
+		{
+			set { _stream = value; }
+			get { return _stream; }
+		}
+
+
+		public TcpClient Client
+		{
+			set { client = value; }
+			get { return client; }
+		}
+
+		#endregion
 		#region Function
 		public void Connect(String server, int port)
 		{
@@ -78,8 +91,8 @@ namespace SwarmClient.ViewModels
 					Int32 bytes = stream.Read(data, 0, data.Length);
 					responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
 				// Close everything.
-				stream.Close();
-				client.Close();
+				//stream.Close();
+				//client.Close();
 
 			}
 			catch (ArgumentNullException e)
