@@ -30,7 +30,7 @@ namespace SwarmClient.ViewModels
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
 			_models = new ObservableCollection<string>();
-			Visibility1 = Visibility.Hidden;
+			Visibility1 = Visibility.Visible;
 			ClosedCommand= new Relaycommand(ClosedEcecute, CanClosed);
 		}
 		#endregion
