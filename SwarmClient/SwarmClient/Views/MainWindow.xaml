@@ -45,7 +45,7 @@
                     TextWrapping="WrapWithOverflow"
                      />
             <ListBox Grid.Row="4" Grid.Column="1" 
-                     ItemsSource="{Binding ResivedData, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
+                     ItemsSource="{Binding Models, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
                                         
                      />
             <!--<WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">-->

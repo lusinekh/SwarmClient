@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Net.Sockets;
@@ -16,6 +17,7 @@ namespace SwarmClient.ViewModels
 		private Model _model;
 		private logic _logic;
 		private TcpServereConnect _connection;
+		private ObservableCollection<string> _models;
 		private bool _convert=false;
 		public Visibility _visibility;
 		#endregion
@@ -27,11 +29,35 @@ namespace SwarmClient.ViewModels
 			_connection = new TcpServereConnect();
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
+			_models = new ObservableCollection<string>();
 			Visibility1 = Visibility.Hidden;
 			ClosedCommand= new Relaycommand(ClosedEcecute, CanClosed);
 		}
 		#endregion
 		#region  Propertys
+
+
+		public ObservableCollection<string> Models
+		{
+			get { return _models; }
+			set
+			{
+				_models = value;
+				RaisePropertyChanged("Models");
+
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
 
 		public Visibility Visibility1
 		{
@@ -42,6 +68,20 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("Visibility1");
 			}
 		}
+		
+		public String GateResponseData
+		{
+			get { return Connection.responseData; }
+			set
+			{
+				Connection.responseData = value;
+				RaisePropertyChanged("Connection");
+			}
+
+		}
+
+
+
 		public TcpServereConnect Connection
 		{
 			get { return _connection; }
@@ -199,7 +239,8 @@ namespace SwarmClient.ViewModels
 		{
 			Connection.SendMassage(DataToSend);
 			Send = "Sent";
-			ResivedData = _connection.responseData;
+			Models.Add(GateResponseData);
+			//ResivedData = _connection.responseData;
 			
 
 		}
