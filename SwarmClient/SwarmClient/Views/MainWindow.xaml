@@ -65,9 +65,7 @@
                          VerticalAlignment="Bottom"
                          HorizontalAlignment="Center"
                          Visibility="{Binding Visibility1}"
-                      Width="112" Margin="5,0,23,1"
-                     
-                     
+                      Width="112" Margin="5,0,23,1"                     
                                              />
 
             <Button   Grid.Row="4" Grid.Column="2"   Content="DisConnect" Style="{StaticResource ButtonStyle}"

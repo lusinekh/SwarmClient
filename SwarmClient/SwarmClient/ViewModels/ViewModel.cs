@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 
@@ -47,18 +48,7 @@ namespace SwarmClient.ViewModels
 
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
-
+		
 		public Visibility Visibility1
 		{
 			get { return _visibility; }
@@ -79,9 +69,6 @@ namespace SwarmClient.ViewModels
 			}
 
 		}
-
-
-
 		public TcpServereConnect Connection
 		{
 			get { return _connection; }
@@ -166,8 +153,7 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("Client");
 			}
 		}
-
-
+		
 		public NetworkStream Stream
 		{
 			get { return Connection.stream; }
@@ -235,14 +221,14 @@ namespace SwarmClient.ViewModels
 			}
 			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
 		}
+
+	
 		public void SendEcecute()
 		{
 			Connection.SendMassage(DataToSend);
 			Send = "Sent";
 			Models.Add(GateResponseData);
 			//ResivedData = _connection.responseData;
-			
-
 		}
 		public bool CanEcecuteConnect()
 		{
