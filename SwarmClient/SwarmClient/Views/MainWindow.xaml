@@ -42,7 +42,7 @@
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
                      
-                    TextWrapping="WrapWithOverflow"
+                       TextWrapping="WrapWithOverflow"
                      />
             <ListBox Grid.Row="4" Grid.Column="1" 
                      ItemsSource="{Binding Models, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
