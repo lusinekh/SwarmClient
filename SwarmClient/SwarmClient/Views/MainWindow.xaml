@@ -41,8 +41,9 @@
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"   Text ="{Binding DataToSend,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
-                     
+                      AcceptsReturn="True"
                        TextWrapping="WrapWithOverflow"
+                     SpellCheck.IsEnabled="True"
                      />
             <ListBox Grid.Row="4" Grid.Column="1" 
                      ItemsSource="{Binding Models, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
