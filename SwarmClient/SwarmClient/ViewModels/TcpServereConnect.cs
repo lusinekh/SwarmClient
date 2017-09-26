@@ -77,10 +77,10 @@ namespace SwarmClient.ViewModels
 					// Read the first batch of the TcpServer response bytes.
 					Int32 bytes = stream.Read(data, 0, data.Length);
 					responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-					// Close everything.
-					//stream.Close();
-					//client.Close();
-				
+				// Close everything.
+				stream.Close();
+				client.Close();
+
 			}
 			catch (ArgumentNullException e)
 			{

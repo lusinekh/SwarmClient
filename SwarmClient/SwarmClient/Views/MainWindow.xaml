@@ -32,21 +32,22 @@
             <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}" />
             <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
                      MinHeight="20" MinWidth="20"     
-                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   
+                     VerticalContentAlignment="Center"
                         Text ="{Binding ConnectionString,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"   Text ="{Binding DataToSend,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
-                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                     
                     TextWrapping="WrapWithOverflow"
                      />
             <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}" 
                      Text ="{Binding ResivedData,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}" 
-                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                     
                      IsReadOnly="True"
                      />
             <!--<WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">-->
