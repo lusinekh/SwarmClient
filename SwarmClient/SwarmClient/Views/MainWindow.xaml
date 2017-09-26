@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SwarmClient.ViewModels"
         mc:Ignorable="d"
-        Title="SwarmClient" MinHeight="350" MinWidth="825">
+        Title="SwarmClient" MinHeight="270" MinWidth="825">
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
