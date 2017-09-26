@@ -62,7 +62,7 @@ namespace SwarmServerExample
 					}
 
 					// Shutdown and end connection
-					client.Close();
+					//client.Close();
 				}
 			}
 			catch (SocketException e)
@@ -72,7 +72,7 @@ namespace SwarmServerExample
 			finally
 			{
 				// Stop listening for new clients.
-				server.Stop();
+				//server.Stop();
 			}
 
 			Console.WriteLine("\nHit enter to continue...");

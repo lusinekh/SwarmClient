@@ -26,7 +26,7 @@ namespace SwarmClient.ViewModels
 			_connection = new TcpServereConnect();
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
-			Visibility1 = Visibility.Collapsed;
+			Visibility1 = Visibility.Visible;
 		}
 		#endregion
 		#region  Propertys

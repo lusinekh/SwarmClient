@@ -12,11 +12,9 @@
     <Style TargetType="Label" x:Key="LableStyle1">
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Top"/>
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
-        <Setter Property="Width" Value="120" />
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Margin" Value="1,6"/>
+        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        
     </Style>
     <Style TargetType="TextBox" x:Key="TextBoxStyle">
     </Style>
@@ -24,7 +22,7 @@
 
         <Setter Property="Margin" Value="7,1"/>
         <Setter Property="Width" Value="93"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="27"/>
 
     </Style>
 </ResourceDictionary>
