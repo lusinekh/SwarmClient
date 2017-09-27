@@ -12,32 +12,30 @@ using System.Windows.Input;
 
 namespace SwarmClient.ViewModels
 {
-	public class ViewModel : INotifyPropertyChanged
+	public class MainWindowViewModel : INotifyPropertyChanged
 	{
 		#region  Variables
-		private Model _model;
-		private logic _logic;
-		private TcpServereConnect _connection;
+		private SwarmServerFunctions _model;
+		private TcpServereConnect _logic;
+		private TcpServereClientt _connection;
 		private ObservableCollection<string> _models;
-		private bool _convert=false;
+		private bool _convert = false;
 		public Visibility _visibility;
 		#endregion
 		#region Constructrs
-		public ViewModel()
+		public MainWindowViewModel()
 		{
-			_model = new Model();
-			_logic = new logic();
-			_connection = new TcpServereConnect();
+			_model = new SwarmServerFunctions();
+			_logic = new TcpServereConnect();
+			_connection = new TcpServereClientt();
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
 			_models = new ObservableCollection<string>();
 			Visibility1 = Visibility.Visible;
-			ClosedCommand= new Relaycommand(ClosedEcecute, CanClosed);
+			ClosedCommand = new Relaycommand(ClosedEcecute, CanClosed);
 		}
 		#endregion
 		#region  Propertys
-
-
 		public ObservableCollection<string> Models
 		{
 			get { return _models; }
@@ -45,10 +43,8 @@ namespace SwarmClient.ViewModels
 			{
 				_models = value;
 				RaisePropertyChanged("Models");
-
 			}
 		}
-		
 		public Visibility Visibility1
 		{
 			get { return _visibility; }
@@ -58,7 +54,6 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("Visibility1");
 			}
 		}
-		
 		public String GateResponseData
 		{
 			get { return Connection.responseData; }
@@ -69,7 +64,7 @@ namespace SwarmClient.ViewModels
 			}
 
 		}
-		public TcpServereConnect Connection
+		public TcpServereClientt Connection
 		{
 			get { return _connection; }
 			set
@@ -78,7 +73,7 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("Connection");
 			}
 		}
-		public logic Logic
+		public TcpServereConnect Logic
 		{
 			get { return _logic; }
 			set
@@ -105,16 +100,16 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("DataToSend");
 			}
 		}
-		
 		public bool Convert
 		{
 			get { return _convert; }
-			set { _convert = value;
+			set
+			{
+				_convert = value;
 				RaisePropertyChanged("Convert");
 			}
 
 		}
-
 		public string ResivedData
 		{
 			get { return Logic.ResivedData; }
@@ -124,7 +119,7 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("ResivedData");
 			}
 		}
-		public Model Model
+		public SwarmServerFunctions Model
 		{
 			get { return _model; }
 			set
@@ -142,31 +137,25 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("Connected");
 			}
 		}
-
 		public TcpClient Client
 		{
 			get { return Connection.Client; }
-			
 			set
 			{
 				Connection.Client = value;
 				RaisePropertyChanged("Client");
 			}
 		}
-		
 		public NetworkStream Stream
 		{
 			get { return Connection.stream; }
-
 			set
 			{
 				Connection.stream = value;
 				RaisePropertyChanged("Stream");
 			}
-			
+
 		}
-
-
 		public string Send
 		{
 			get { return Model.Send; }
@@ -187,28 +176,20 @@ namespace SwarmClient.ViewModels
 			if (PropertyChanged != null)
 				PropertyChanged(this, new PropertyChangedEventArgs(name));
 		}
-
-
 		public void ClosedEcecute()
 		{
 			Stream.Close();
 			Client.Close();
-			
-
 		}
-
 		public bool CanClosed()
 		{
 			return true;
 		}
-
-
 		public void ConnectEcecute()
 		{
 			try
 			{
 				var _apiAddres = HelpperFunctions.GetIPAddress(ConnectionString);
-
 				var _port = HelpperFunctions.GetPort(ConnectionString);
 				Connection.Connect(_apiAddres, _port);
 				Connected = "Contact is connected";
@@ -216,13 +197,10 @@ namespace SwarmClient.ViewModels
 			}
 			catch (Exception e)
 			{
-				Connected = "Contact do`nt connected";
 				MessageBox.Show(e.ToString());
 			}
 			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");
 		}
-
-	
 		public void SendEcecute()
 		{
 			Connection.SendMassage(DataToSend);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SwarmClient.ViewModels
 {
-	public class Model
+	public class SwarmServerFunctions
 	{
         #region  Variables
         private string _conected;

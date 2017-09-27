@@ -68,11 +68,10 @@
     </Compile>
     <Compile Include="Mvvm\Relaycommand.cs" />
     <Compile Include="ViewModels\HelpperFunctions.cs" />
-    <Compile Include="ViewModels\logic.cs" />
-    <Compile Include="ViewModels\Model.cs" />
-    <Compile Include="ViewModels\Sworm.cs" />
     <Compile Include="ViewModels\TcpServereConnect.cs" />
-    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\SwarmServerFunctions.cs" />
+    <Compile Include="ViewModels\TcpServereClientt.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

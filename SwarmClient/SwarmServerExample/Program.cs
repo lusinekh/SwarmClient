@@ -4,7 +4,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-
 namespace SwarmServerExample
 {
 	class Program
@@ -60,7 +59,6 @@ namespace SwarmServerExample
 						stream.Write(msg, 0, msg.Length);
 						Console.WriteLine("Sent: {0}", data);
 					}
-
 					// Shutdown and end connection
 					//client.Close();
 				}
@@ -77,7 +75,6 @@ namespace SwarmServerExample
 
 			Console.WriteLine("\nHit enter to continue...");
 			Console.Read();
-			
 		}
 	}
 }
