@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="140"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Connection String" Style="{StaticResource LableStyle}"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Connection Api" Style="{StaticResource LableStyle}"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Data To Send" Style="{StaticResource LableStyle}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}"/>
             <TextBox Grid.Row="0" Grid.Column="1" MinHeight="20" MinWidth="20"                         
