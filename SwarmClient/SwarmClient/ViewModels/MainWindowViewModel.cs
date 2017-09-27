@@ -197,6 +197,7 @@ namespace SwarmClient.ViewModels
 			}
 			catch (Exception e)
 			{
+				
 				MessageBox.Show(e.ToString());
 			}
 			//MessageBox.Show($"{ConnectionString},{DataToSend},{ResivedData}");

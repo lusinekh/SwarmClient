@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:SwarmClient.ViewModels"
         mc:Ignorable="d"
         Title="SwarmClient" MinHeight="270" MinWidth="825" >
+    
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+    
     <Border Background="Lavender" BorderBrush="LavenderBlush" BorderThickness="2" CornerRadius="15">
         <Grid Margin="20">
             <Grid.RowDefinitions>
@@ -17,7 +19,6 @@
                 <RowDefinition Height="0.8*"/>
                 <RowDefinition Height="28"/>
                 <RowDefinition Height="2*"/>
-               
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -26,58 +27,37 @@
                 <ColumnDefinition Width="140"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Connection String" Style="{StaticResource LableStyle}" />
+            <Label Grid.Row="0" Grid.Column="0" Content="Connection String" Style="{StaticResource LableStyle}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Data To Send" Style="{StaticResource LableStyle}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" MinHeight="20" MinWidth="20"                         
+                  Style="{StaticResource TextBoxStyle}" VerticalContentAlignment="Center"
+                  Text ="{Binding ConnectionString,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Data To Send" Style="{StaticResource LableStyle}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
+                  Text ="{Binding DataToSend,Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"                      
+                  AcceptsReturn="True" TextWrapping="WrapWithOverflow" SpellCheck.IsEnabled="True"/>
 
-            <Label Grid.Row="4" Grid.Column="0" Content="Resived Data"  Style="{StaticResource LableStyle}" />
-            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
-                     MinHeight="20" MinWidth="20"     
-                   
-                     VerticalContentAlignment="Center"
-                        Text ="{Binding ConnectionString,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}"   Text ="{Binding DataToSend,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}"
-                      AcceptsReturn="True"
-                       TextWrapping="WrapWithOverflow"
-                     SpellCheck.IsEnabled="True"
-                     />
             <ListBox Grid.Row="4" Grid.Column="1" 
-                     ItemsSource="{Binding Models, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
-                                        
-                     />
-            <!--<WrapPanel Grid.Row="0" Grid.Column="2" Margin="1">-->
-            <Button   Grid.Row="0" Grid.Column="2"   Content="Connect" Style="{StaticResource ButtonStyle}"
-                Command="{Binding  ConnectCommand}" 
-                      VerticalAlignment="Bottom"
-                         HorizontalAlignment="Center"
-                      Visibility="{Binding Convert}"  Width="112" Margin="5,0,23,1"
-                    />
-            <Label Grid.Column="2"  Style="{StaticResource LableStyle1}" Content="{Binding Connected}" Height="23"  Width="Auto" Margin="2,28,18,0" Grid.RowSpan="2"  />
-            <!--</WrapPanel>-->
+                  ItemsSource="{Binding Models, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+           
+            <Button Grid.Row="0" Grid.Column="2" Content="Connect" Style="{StaticResource ButtonStyle}"
+                  Command="{Binding ConnectCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                  Visibility="{Binding Convert}"  Width="112" Margin="5,0,23,1"/>
 
-            <Label Grid.Row="3" Grid.Column="2"  Style="{StaticResource LableStyle1}" 
-                   Content="{Binding Send}" Height="23"  Width="Auto" Margin="2,0,18,0" />
-            <Button  Grid.Row="2" Grid.Column="2" Content="Send" Style="{StaticResource ButtonStyle}"
-                    Command="{Binding SendCommand}"
-                         VerticalAlignment="Bottom"
-                         HorizontalAlignment="Center"
-                         Visibility="{Binding Visibility1}"
-                      Width="112" Margin="5,0,23,1"                     
-                                             />
+            <Label Grid.Column="2" Grid.RowSpan="2" Height="23" Width="Auto" Margin="2,28,18,0"  
+                   Style="{StaticResource LableStyle1}" Content="{Binding Connected}"/>
+           
+            <Label Grid.Row="3" Grid.Column="2" Height="23" Width="Auto" Margin="2,0,18,0"  
+                  Style="{StaticResource LableStyle1}" Content="{Binding Send}"/>
+            
+            <Button Grid.Row="2" Grid.Column="2" Width="112" Margin="5,0,23,1" 
+                  Content="Send" Command="{Binding SendCommand}" Style="{StaticResource ButtonStyle}"
+                  VerticalAlignment="Bottom"  HorizontalAlignment="Center"   Visibility="{Binding Visibility1}"/>
 
-            <Button   Grid.Row="4" Grid.Column="2"   Content="DisConnect" Style="{StaticResource ButtonStyle}"
-                Command="{Binding ClosedCommand}" 
-                      VerticalAlignment="Bottom"
-                         HorizontalAlignment="Center"
-                      Visibility="{Binding Convert}"   Width="112" Margin="5,0,23,1"
-                    />
-
-
-
+            <Button Grid.Row="4" Grid.Column="2" Width="112" Margin="5,0,23,1" Content="DisConnect" 
+                  Command="{Binding ClosedCommand}" Style="{StaticResource ButtonStyle}" 
+                  VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="{Binding Convert}"/>
         </Grid>
     </Border>
 </Window>
