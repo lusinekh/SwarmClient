@@ -21,15 +21,13 @@ namespace ConsoleApp34
 		public static async Task Echo()
 		{
 			
-			        var message1 = ("{\"command\": \"request_session\",\"params\": {\"site_id\": 1,\"language\": \"arm\"}}");
+			      
 
 
-
-			var message =  ("{\"command\": \"login\",\"params\": {\"username\": \"Sales1\",\"password\": \"Sales1!2\"}}");
-
+            
 			using (ClientWebSocket ws = new ClientWebSocket())
 			{
-				Uri serverUri = new Uri("wss://eu-spring-terminals-elk.betconstruct.com");
+				
 				await ws.ConnectAsync(serverUri, System.Threading.CancellationToken.None);
 				while (ws.State == System.Net.WebSockets.WebSocketState.Open)
 				{
