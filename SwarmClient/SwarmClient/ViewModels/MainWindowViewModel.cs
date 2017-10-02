@@ -31,7 +31,7 @@ namespace SwarmClient.ViewModels
 			ConnectCommand = new Relaycommand(ConnectEcecute, CanEcecuteConnect);
 			SendCommand = new Relaycommand(SendEcecute, CanEcecuteSend);
 			_models = new ObservableCollection<string>();
-			Visibility1 = Visibility.Visible;
+			Visibility1 = Visibility.Hidden;
 			ClosedCommand = new Relaycommand(ClosedEcecute, CanClosed);
 		}
 		#endregion
@@ -100,13 +100,13 @@ namespace SwarmClient.ViewModels
 				RaisePropertyChanged("DataToSend");
 			}
 		}
-		public bool Convert
+		public bool VisibilityButtonSend
 		{
 			get { return _convert; }
 			set
 			{
 				_convert = value;
-				RaisePropertyChanged("Convert");
+				RaisePropertyChanged("VisibilityButtonSend");
 			}
 
 		}

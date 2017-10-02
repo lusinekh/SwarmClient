@@ -53,7 +53,7 @@
             
             <Button Grid.Row="2" Grid.Column="2" Width="112" Margin="5,0,23,1" 
                   Content="Send" Command="{Binding SendCommand}" Style="{StaticResource ButtonStyle}"
-                  VerticalAlignment="Bottom"  HorizontalAlignment="Center"   Visibility="{Binding Visibility1}"/>
+                  VerticalAlignment="Bottom"  HorizontalAlignment="Center"   Visibility="{Binding  Visibility1}"/>
 
             <Button Grid.Row="4" Grid.Column="2" Width="112" Margin="5,0,23,1" Content="DisConnect" 
                   Command="{Binding ClosedCommand}" Style="{StaticResource ButtonStyle}" 

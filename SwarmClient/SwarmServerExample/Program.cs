@@ -41,7 +41,6 @@ namespace SwarmServerExample
 
 					// Get a stream object for reading and writing
 					NetworkStream stream = client.GetStream();
-
 					int i;
 
 					// Loop to receive all the data sent by the client.
@@ -67,12 +66,7 @@ namespace SwarmServerExample
 			{
 				Console.WriteLine("SocketException: {0}", e);
 			}
-			finally
-			{
-				// Stop listening for new clients.
-				//server.Stop();
-			}
-
+			
 			Console.WriteLine("\nHit enter to continue...");
 			Console.Read();
 		}
